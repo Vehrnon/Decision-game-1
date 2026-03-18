@@ -157,6 +157,7 @@
       align-items: center;
       gap: 12px;
       margin-bottom: 12px;
+      flex-wrap: wrap;
     }
 
     .small { font-size: 14px; }
@@ -186,13 +187,23 @@
     <section id="screen-setup" class="screen">
       <div class="card stack">
         <h2>Session Setup</h2>
+
         <div class="row">
           <div>
             <label for="studentCount">Number of students</label>
             <select id="studentCount">
-              <option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option selected>10</option><option>11</option><option>12</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option selected>10</option>
+              <option>11</option>
+              <option>12</option>
             </select>
           </div>
+
           <div>
             <label for="difficulty">Difficulty</label>
             <select id="difficulty">
@@ -208,12 +219,13 @@
           <div>
             <label for="timerSelect">Round timer</label>
             <select id="timerSelect">
-              <option value="60">1 minute</option>
+              <option value="60" selected>1 minute</option>
               <option value="120">2 minutes</option>
-              <option value="180" selected>3 minutes</option>
+              <option value="180">3 minutes</option>
               <option value="240">4 minutes</option>
             </select>
           </div>
+
           <div>
             <label for="sessionName">Session name</label>
             <input id="sessionName" placeholder="Class A" />
@@ -267,7 +279,7 @@
           <div id="playOutcomeText" class="large-center"></div>
         </div>
 
-        <div id="timerDisplay" class="timer green">03:00</div>
+        <div id="timerDisplay" class="timer green">01:00</div>
 
         <p class="muted">Give clues beginning with: “You decided to...”</p>
 
@@ -320,72 +332,85 @@
   </div>
 
   <script>
-    const CARDS = [
-      { id: 'E01', tier: 'easy', outcome: 'Your mix sounded poor', decision: 'You decided to skip soundcheck' },
-      { id: 'E02', tier: 'easy', outcome: 'FOH cut your audio', decision: 'You decided to ignore FOH cues' },
-      { id: 'E03', tier: 'easy', outcome: 'Your set ended early', decision: 'You decided to exceed curfew' },
-      { id: 'E04', tier: 'easy', outcome: 'Your fees dropped', decision: 'You decided to undercut your fee' },
-      { id: 'E05', tier: 'easy', outcome: 'You missed soundcheck', decision: 'You decided to arrive late' },
-      { id: 'E06', tier: 'easy', outcome: 'Promoter stopped booking you', decision: 'You decided to cancel a show' },
-      { id: 'E07', tier: 'easy', outcome: 'You missed one show', decision: 'You decided to double-book a date' },
-      { id: 'E08', tier: 'easy', outcome: 'Key gear was missing', decision: 'You decided to ignore your rider' },
-      { id: 'E09', tier: 'easy', outcome: 'Ticket sales increased', decision: 'You decided to run paid ads' },
-      { id: 'E10', tier: 'easy', outcome: 'Engagement spiked', decision: 'You decided to post clips instantly' },
-      { id: 'E11', tier: 'easy', outcome: 'Your show looked premium', decision: 'You decided to invest in visuals' },
-      { id: 'E12', tier: 'easy', outcome: 'Industry attended your show', decision: 'You decided to invite promoters' },
-      { id: 'E13', tier: 'easy', outcome: 'You retained fan contacts', decision: 'You decided to build an email list' },
-      { id: 'E14', tier: 'easy', outcome: 'You shared audiences', decision: 'You decided to collaborate locally' },
-      { id: 'E15', tier: 'easy', outcome: 'Promoters noticed you', decision: 'You decided to play showcases' },
-      { id: 'E16', tier: 'easy', outcome: 'You reached bigger audiences', decision: 'You decided to open for bigger artists' },
-      { id: 'E17', tier: 'easy', outcome: 'You built a local fanbase', decision: 'You decided to stay in one residency' },
-      { id: 'E18', tier: 'easy', outcome: 'Your performance improved', decision: 'You decided to rehearse extensively' },
-      { id: 'E19', tier: 'easy', outcome: 'Mistakes increased live', decision: 'You decided to skip rehearsals' },
-      { id: 'E20', tier: 'easy', outcome: 'The show ended strong', decision: 'You decided to close strong' },
+    let CARDS = [];
 
-      { id: 'M01', tier: 'medium', outcome: 'Ticket sales slowed', decision: 'You decided to raise ticket prices' },
-      { id: 'M02', tier: 'medium', outcome: 'Audience felt disconnected', decision: 'You decided to focus only on technique' },
-      { id: 'M03', tier: 'medium', outcome: 'Your set felt repetitive', decision: 'You decided to repeat the same set' },
-      { id: 'M04', tier: 'medium', outcome: 'You gained new exposure', decision: 'You decided to accept a last-minute slot' },
-      { id: 'M05', tier: 'medium', outcome: 'Fan growth slowed', decision: 'You decided to prioritise private gigs' },
-      { id: 'M06', tier: 'medium', outcome: 'Your show quality dropped', decision: 'You decided to cut production costs' },
-      { id: 'M07', tier: 'medium', outcome: 'Booking conflicts increased', decision: 'You decided to work multiple promoters' },
-      { id: 'M08', tier: 'medium', outcome: 'Audience lost interest', decision: 'You decided to stop releasing music' },
-      { id: 'M09', tier: 'medium', outcome: 'Your visibility dropped', decision: 'You decided to avoid social media' },
-      { id: 'M10', tier: 'medium', outcome: 'You earned less', decision: 'You decided to accept poor contracts' },
-      { id: 'M11', tier: 'medium', outcome: 'Your identity became clear', decision: 'You decided to stick to one sound' },
-      { id: 'M12', tier: 'medium', outcome: 'You built strong connections', decision: 'You decided to network backstage' },
-      { id: 'M13', tier: 'medium', outcome: 'Your following grew', decision: 'You decided to build social presence' },
-      { id: 'M14', tier: 'medium', outcome: 'You dominated one market', decision: 'You decided to focus on one city' },
-      { id: 'M15', tier: 'medium', outcome: 'You built goodwill', decision: 'You decided to play free shows' },
-      { id: 'M16', tier: 'medium', outcome: 'Merch sales slowed', decision: 'You decided to sell high-priced merch' },
-      { id: 'M17', tier: 'medium', outcome: 'Your set felt polished', decision: 'You decided to use backing tracks' },
-      { id: 'M18', tier: 'medium', outcome: 'Focus stayed on music', decision: 'You decided to perform minimal setup' },
-      { id: 'M19', tier: 'medium', outcome: 'You kept full control', decision: 'You decided to stay independent' },
-      { id: 'M20', tier: 'medium', outcome: 'You built originality', decision: 'You decided to ignore trends' },
+    async function loadCardsFromCSV() {
+      const response = await fetch('./cards.csv', { cache: 'no-store' });
+      if (!response.ok) {
+        throw new Error('Could not load cards.csv');
+      }
 
-      { id: 'H01', tier: 'hard', outcome: 'Tour lost money', decision: 'You decided to overspend on touring' },
-      { id: 'H02', tier: 'hard', outcome: 'Your show looked premium but profits dropped', decision: 'You decided to upgrade production heavily' },
-      { id: 'H03', tier: 'hard', outcome: 'You gained exposure but no revenue', decision: 'You decided to prioritise reach over income' },
-      { id: 'H04', tier: 'hard', outcome: 'You built a fanbase but stayed local', decision: 'You decided to focus on one city' },
-      { id: 'H05', tier: 'hard', outcome: 'You kept control but grew slowly', decision: 'You decided to stay independent' },
-      { id: 'H06', tier: 'hard', outcome: 'You scaled fast but lost control', decision: 'You decided to sign a label deal' },
-      { id: 'H07', tier: 'hard', outcome: 'Your set stayed consistent but felt predictable', decision: 'You decided to repeat your best set' },
-      { id: 'H08', tier: 'hard', outcome: 'Your set felt raw but less polished', decision: 'You decided to perform fully live' },
-      { id: 'H09', tier: 'hard', outcome: 'You earned more but lost audience connection', decision: 'You decided to prioritise corporate gigs' },
-      { id: 'H10', tier: 'hard', outcome: 'You built hype but could not sustain it', decision: 'You decided to run heavy promotions' }
-    ];
+      const csvText = await response.text();
+      const lines = csvText.trim().split(/\r?\n/);
+
+      if (lines.length < 2) {
+        throw new Error('cards.csv is empty or invalid');
+      }
+
+      const headers = parseCSVLine(lines.shift()).map(h => h.trim().toLowerCase());
+      const tierIndex = headers.indexOf('tier');
+      const outcomeIndex = headers.indexOf('outcome');
+      const decisionIndex = headers.indexOf('decision');
+
+      if (tierIndex === -1 || outcomeIndex === -1 || decisionIndex === -1) {
+        throw new Error('cards.csv must contain exactly these headers: tier,outcome,decision');
+      }
+
+      CARDS = lines
+        .map(parseCSVLine)
+        .filter(parts => parts.length >= 3)
+        .map((parts, index) => ({
+          id: `CSV${String(index + 1).padStart(3, '0')}`,
+          tier: (parts[tierIndex] || '').trim().toLowerCase(),
+          outcome: (parts[outcomeIndex] || '').trim(),
+          decision: (parts[decisionIndex] || '').trim()
+        }))
+        .filter(card => card.tier && card.outcome && card.decision);
+
+      if (!CARDS.length) {
+        throw new Error('No valid cards found in cards.csv');
+      }
+    }
+
+    function parseCSVLine(line) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        const next = line[i + 1];
+
+        if (char === '"') {
+          if (inQuotes && next === '"') {
+            current += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (char === ',' && !inQuotes) {
+          result.push(current);
+          current = '';
+        } else {
+          current += char;
+        }
+      }
+
+      result.push(current);
+      return result;
+    }
 
     const state = {
       sessionName: '',
       students: [],
       difficulty: 'easy',
-      timerDuration: 180,
+      timerDuration: 60,
       roundNumber: 1,
       currentTurnIndex: 0,
       scores: {},
       usedCardIds: [],
       currentCard: null,
-      timerRemaining: 180,
+      timerRemaining: 60,
       timerInterval: null,
       lastResultCorrect: false
     };
@@ -408,7 +433,7 @@
     const sessionName = document.getElementById('sessionName');
 
     function showScreen(name) {
-      Object.values(screens).forEach(s => s.classList.remove('active'));
+      Object.values(screens).forEach(screen => screen.classList.remove('active'));
       screens[name].classList.add('active');
     }
 
@@ -424,7 +449,11 @@
     }
 
     function saveState() {
-      localStorage.setItem('decisionLabState', JSON.stringify({ ...state, timerInterval: null }));
+      localStorage.setItem('decisionLabState', JSON.stringify({
+        ...state,
+        timerInterval: null
+      }));
+      document.getElementById('btnResume').disabled = false;
     }
 
     function loadState() {
@@ -451,7 +480,7 @@
     function renderTimer() {
       const el = document.getElementById('timerDisplay');
       el.textContent = formatTime(state.timerRemaining);
-      el.className = 'timer ' + (state.timerRemaining > 60 ? 'green' : state.timerRemaining > 20 ? 'amber' : 'red');
+      el.className = 'timer ' + (state.timerRemaining > 30 ? 'green' : state.timerRemaining > 10 ? 'amber' : 'red');
     }
 
     function getDeck() {
@@ -460,10 +489,20 @@
     }
 
     function getRandomCard() {
-      const deck = getDeck().filter(card => !state.usedCardIds.includes(card.id));
-      const activeDeck = deck.length ? deck : getDeck();
-      if (!deck.length) state.usedCardIds = [];
-      const card = activeDeck[Math.floor(Math.random() * activeDeck.length)];
+      const fullDeck = getDeck();
+
+      if (!fullDeck.length) {
+        throw new Error(`No cards found for difficulty: ${state.difficulty}`);
+      }
+
+      let available = fullDeck.filter(card => !state.usedCardIds.includes(card.id));
+
+      if (!available.length) {
+        state.usedCardIds = [];
+        available = fullDeck;
+      }
+
+      const card = available[Math.floor(Math.random() * available.length)];
       state.usedCardIds.push(card.id);
       return card;
     }
@@ -477,7 +516,9 @@
       document.getElementById('pillDifficulty').textContent = `Difficulty: ${state.difficulty}`;
       document.getElementById('playDifficulty').textContent = `Difficulty: ${state.difficulty}`;
 
-      if (!state.currentCard) state.currentCard = getRandomCard();
+      if (!state.currentCard) {
+        state.currentCard = getRandomCard();
+      }
 
       document.getElementById('outcomeText').textContent = state.currentCard.outcome;
       document.getElementById('playOutcomeText').textContent = state.currentCard.outcome;
@@ -485,13 +526,15 @@
 
     function startSession() {
       state.sessionName = sessionName.value.trim() || 'Untitled Session';
-      state.students = Array.from(studentInputs.querySelectorAll('input')).map((i, idx) => i.value.trim() || `Student ${idx + 1}`);
+      state.students = Array.from(studentInputs.querySelectorAll('input')).map((input, idx) => input.value.trim() || `Student ${idx + 1}`);
       state.difficulty = difficulty.value;
       state.timerDuration = parseInt(timerSelect.value, 10);
       state.roundNumber = 1;
       state.currentTurnIndex = 0;
       state.scores = {};
-      state.students.forEach(s => state.scores[s] = 0);
+      state.students.forEach(student => {
+        state.scores[student] = 0;
+      });
       state.usedCardIds = [];
       state.currentCard = getRandomCard();
       state.lastResultCorrect = false;
@@ -518,14 +561,17 @@
     }
 
     function pauseTimer() {
+      const pauseButton = document.getElementById('btnPause');
+
       if (state.timerInterval) {
         clearInterval(state.timerInterval);
         state.timerInterval = null;
-        document.getElementById('btnPause').textContent = 'Resume';
+        pauseButton.textContent = 'Resume';
       } else {
         startTimer();
-        document.getElementById('btnPause').textContent = 'Pause';
+        pauseButton.textContent = 'Pause';
       }
+
       saveState();
     }
 
@@ -533,8 +579,10 @@
       state.lastResultCorrect = true;
       clearInterval(state.timerInterval);
       state.timerInterval = null;
+
       const guesser = state.students[state.currentTurnIndex];
       state.scores[guesser] += 1;
+
       goToResult();
     }
 
@@ -577,9 +625,7 @@
         list.appendChild(li);
       });
 
-      document.getElementById('summaryText').textContent =
-        `${state.sessionName} • Round ${state.roundNumber} complete`;
-
+      document.getElementById('summaryText').textContent = `${state.sessionName} • Round ${state.roundNumber} complete`;
       saveState();
       showScreen('summary');
     }
@@ -604,20 +650,25 @@
         alert('No saved session found.');
         return;
       }
+
       buildStudentInputs(state.students.length);
       Array.from(studentInputs.querySelectorAll('input')).forEach((input, idx) => {
         input.value = state.students[idx] || `Student ${idx + 1}`;
       });
+
       studentCount.value = String(state.students.length);
       difficulty.value = state.difficulty;
       timerSelect.value = String(state.timerDuration);
       sessionName.value = state.sessionName;
+
       updateTurnScreen();
       renderTimer();
       showScreen('turn');
     });
 
-    document.getElementById('btnBackToSplash').addEventListener('click', () => showScreen('splash'));
+    document.getElementById('btnBackToSplash').addEventListener('click', () => {
+      showScreen('splash');
+    });
 
     studentCount.addEventListener('change', () => {
       buildStudentInputs(parseInt(studentCount.value, 10));
@@ -644,26 +695,36 @@
     });
 
     document.getElementById('btnPause').addEventListener('click', pauseTimer);
+
     document.getElementById('btnCorrect').addEventListener('click', markCorrect);
+
     document.getElementById('btnRevealAnswer').addEventListener('click', () => {
       state.lastResultCorrect = false;
       goToResult();
     });
+
     document.getElementById('btnEndTurn').addEventListener('click', () => {
       state.lastResultCorrect = false;
       goToResult();
     });
 
     document.getElementById('btnNextTurn').addEventListener('click', nextTurn);
+
     document.getElementById('btnNextRound').addEventListener('click', nextRound);
+
     document.getElementById('btnNewSession').addEventListener('click', () => {
       clearInterval(state.timerInterval);
       localStorage.removeItem('decisionLabState');
-      showScreen('splash');
+      location.reload();
     });
 
-    document.getElementById('btnTeacherPanel').addEventListener('click', () => showScreen('teacher'));
-    document.getElementById('btnCloseTeacher').addEventListener('click', () => showScreen('turn'));
+    document.getElementById('btnTeacherPanel').addEventListener('click', () => {
+      showScreen('teacher');
+    });
+
+    document.getElementById('btnCloseTeacher').addEventListener('click', () => {
+      showScreen('turn');
+    });
 
     document.getElementById('btnSkipStudent').addEventListener('click', () => {
       clearInterval(state.timerInterval);
@@ -682,8 +743,19 @@
       showSummary();
     });
 
-    buildStudentInputs(parseInt(studentCount.value, 10));
-    renderTimer();
+    async function initApp() {
+      try {
+        await loadCardsFromCSV();
+        buildStudentInputs(parseInt(studentCount.value, 10));
+        renderTimer();
+        document.getElementById('btnResume').disabled = !localStorage.getItem('decisionLabState');
+      } catch (error) {
+        console.error(error);
+        alert('Error loading cards.csv. Make sure cards.csv exists, is uploaded beside index.html, and uses the headers tier,outcome,decision');
+      }
+    }
+
+    initApp();
   </script>
 </body>
 </html>
