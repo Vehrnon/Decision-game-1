@@ -1,0 +1,51 @@
+tier,outcome,decision
+easy,Your mix sounded poor,You decided to skip soundcheck
+easy,FOH cut your audio,You decided to ignore FOH cues
+easy,Your set ended early,You decided to exceed curfew
+easy,Your fees dropped,You decided to undercut your fee
+easy,You missed soundcheck,You decided to arrive late
+easy,Promoter stopped booking you,You decided to cancel a show
+easy,You missed one show,You decided to double-book a date
+easy,Key gear was missing,You decided to ignore your rider
+easy,Ticket sales increased,You decided to run paid ads
+easy,Engagement spiked,You decided to post clips instantly
+easy,Your show looked premium,You decided to invest in visuals
+easy,Industry attended your show,You decided to invite promoters
+easy,You retained fan contacts,You decided to build an email list
+easy,You shared audiences,You decided to collaborate locally
+easy,Promoters noticed you,You decided to play showcases
+easy,You reached bigger audiences,You decided to open for bigger artists
+easy,You built a local fanbase,You decided to stay in one residency
+easy,Your performance improved,You decided to rehearse extensively
+easy,Mistakes increased live,You decided to skip rehearsals
+easy,The show ended strong,You decided to close strong
+medium,Ticket sales slowed,You decided to raise ticket prices
+medium,Audience felt disconnected,You decided to focus only on technique
+medium,Your set felt repetitive,You decided to repeat the same set
+medium,You gained new exposure,You decided to accept a last-minute slot
+medium,Fan growth slowed,You decided to prioritise private gigs
+medium,Your show quality dropped,You decided to cut production costs
+medium,Booking conflicts increased,You decided to work multiple promoters
+medium,Audience lost interest,You decided to stop releasing music
+medium,Your visibility dropped,You decided to avoid social media
+medium,You earned less,You decided to accept poor contracts
+medium,Your identity became clear,You decided to stick to one sound
+medium,You built strong connections,You decided to network backstage
+medium,Your following grew,You decided to build social presence
+medium,You dominated one market,You decided to focus on one city
+medium,You built goodwill,You decided to play free shows
+medium,Merch sales slowed,You decided to sell high-priced merch
+medium,Your set felt polished,You decided to use backing tracks
+medium,Focus stayed on music,You decided to perform minimal setup
+medium,You kept full control,You decided to stay independent
+medium,You built originality,You decided to ignore trends
+hard,Tour lost money,You decided to overspend on touring
+hard,Your show looked premium but profits dropped,You decided to upgrade production heavily
+hard,You gained exposure but no revenue,You decided to prioritise reach over income
+hard,You built a fanbase but stayed local,You decided to focus on one city
+hard,You kept control but grew slowly,You decided to stay independent
+hard,You scaled fast but lost control,You decided to sign a label deal
+hard,Your set stayed consistent but felt predictable,You decided to repeat your best set
+hard,Your set felt raw but less polished,You decided to perform fully live
+hard,You earned more but lost audience connection,You decided to prioritise corporate gigs
+hard,You built hype but could not sustain it,You decided to run heavy promotions
