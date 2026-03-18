@@ -1,51 +1,91 @@
 tier,outcome,decision
-easy,Your mix sounded poor,You decided to skip soundcheck
-easy,FOH cut your audio,You decided to ignore FOH cues
-easy,Your set ended early,You decided to exceed curfew
-easy,Your fees dropped,You decided to undercut your fee
-easy,You missed soundcheck,You decided to arrive late
-easy,Promoter stopped booking you,You decided to cancel a show
-easy,You missed one show,You decided to double-book a date
-easy,Key gear was missing,You decided to ignore your rider
-easy,Ticket sales increased,You decided to run paid ads
-easy,Engagement spiked,You decided to post clips instantly
-easy,Your show looked premium,You decided to invest in visuals
-easy,Industry attended your show,You decided to invite promoters
-easy,You retained fan contacts,You decided to build an email list
-easy,You shared audiences,You decided to collaborate locally
-easy,Promoters noticed you,You decided to play showcases
-easy,You reached bigger audiences,You decided to open for bigger artists
-easy,You built a local fanbase,You decided to stay in one residency
-easy,Your performance improved,You decided to rehearse extensively
-easy,Mistakes increased live,You decided to skip rehearsals
-easy,The show ended strong,You decided to close strong
-medium,Ticket sales slowed,You decided to raise ticket prices
-medium,Audience felt disconnected,You decided to focus only on technique
-medium,Your set felt repetitive,You decided to repeat the same set
-medium,You gained new exposure,You decided to accept a last-minute slot
-medium,Fan growth slowed,You decided to prioritise private gigs
-medium,Your show quality dropped,You decided to cut production costs
-medium,Booking conflicts increased,You decided to work multiple promoters
-medium,Audience lost interest,You decided to stop releasing music
-medium,Your visibility dropped,You decided to avoid social media
-medium,You earned less,You decided to accept poor contracts
-medium,Your identity became clear,You decided to stick to one sound
-medium,You built strong connections,You decided to network backstage
-medium,Your following grew,You decided to build social presence
-medium,You dominated one market,You decided to focus on one city
-medium,You built goodwill,You decided to play free shows
-medium,Merch sales slowed,You decided to sell high-priced merch
-medium,Your set felt polished,You decided to use backing tracks
-medium,Focus stayed on music,You decided to perform minimal setup
-medium,You kept full control,You decided to stay independent
-medium,You built originality,You decided to ignore trends
-hard,Tour lost money,You decided to overspend on touring
-hard,Your show looked premium but profits dropped,You decided to upgrade production heavily
-hard,You gained exposure but no revenue,You decided to prioritise reach over income
-hard,You built a fanbase but stayed local,You decided to focus on one city
-hard,You kept control but grew slowly,You decided to stay independent
-hard,You scaled fast but lost control,You decided to sign a label deal
-hard,Your set stayed consistent but felt predictable,You decided to repeat your best set
-hard,Your set felt raw but less polished,You decided to perform fully live
-hard,You earned more but lost audience connection,You decided to prioritise corporate gigs
-hard,You built hype but could not sustain it,You decided to run heavy promotions
+easy,Your soundcheck was rushed and levels stayed unbalanced,You decided to skip proper soundcheck and rush setup
+easy,Audience engagement dropped as your transitions felt inconsistent,You decided to ignore transitions and focus only on tracks
+easy,Promoter seemed unimpressed with your preparation and professionalism,You decided to arrive late and avoid pre-event coordination
+easy,Your set felt flat with no clear emotional progression,You decided to play random tracks without planning flow
+easy,You lost crowd energy midway through your performance set,You decided to ignore crowd response and continue same style
+easy,Technical issues disrupted your performance and broke audience immersion,You decided not to test equipment before going on stage
+easy,You struggled to maintain timing with unfamiliar venue acoustics,You decided not to rehearse with similar sound environments
+easy,Your closing felt weak and audience left without impact,You decided not to prepare a strong ending sequence
+easy,You gained small traction from consistent local performances,You decided to perform regularly at smaller local venues
+easy,Audience remembered your set due to one strong moment,You decided to prepare one standout moment within your set
+easy,You built early recognition among a niche group of listeners,You decided to focus on a specific sound and audience
+easy,Promoter offered you another slot due to reliability,You decided to show up early and stay fully prepared
+easy,Your confidence improved after multiple consistent live performances,You decided to perform more often despite smaller audiences
+easy,You handled minor mistakes smoothly without breaking performance flow,You decided to keep going without reacting to errors
+easy,You started developing a recognisable performance identity on stage,You decided to repeat certain elements across your performances
+easy,Audience stayed engaged due to clear and structured set progression,You decided to plan your set with defined energy phases
+easy,You improved stage comfort by reducing unnecessary technical complexity,You decided to simplify your setup and focus on delivery
+easy,You gained basic social media traction after posting performance clips,You decided to post short clips immediately after shows
+easy,You began receiving feedback that helped refine your performance style,You decided to ask for feedback from peers and promoters
+easy,You maintained steady bookings due to consistent professional behaviour,You decided to communicate clearly and respect all commitments
+easy,Your show pacing felt predictable and audience interest declined gradually,You decided to reuse the same set without changes
+easy,You struggled to adapt when audience preferences differed from expectations,You decided not to adjust your set in real time
+easy,Your performance lacked energy due to poor physical preparation,You decided to ignore rest and perform while fatigued
+easy,You missed an opportunity to connect with audience after performance,You decided to leave immediately after finishing your set
+easy,Your set felt cluttered due to too many conflicting elements,You decided to include too many ideas without clarity
+easy,You gained moderate recognition after collaborating with another artist locally,You decided to collaborate with someone from your scene
+easy,You improved timing and flow through consistent rehearsal practice sessions,You decided to rehearse regularly before every performance
+easy,Your performance became more engaging after simplifying your transitions,You decided to reduce complexity and focus on smooth flow
+easy,Audience responded positively to clear and confident stage presence,You decided to maintain eye contact and confident posture
+easy,You avoided major mistakes by preparing backup options for equipment,You decided to carry backups for essential performance gear
+medium,Your audience growth plateaued as your content lacked variation,You decided to repeat similar content without experimentation
+medium,You gained new listeners but struggled to retain long-term engagement,You decided to prioritise reach over meaningful audience connection
+medium,Your revenue increased but your artistic identity became diluted,You decided to accept all opportunities without filtering alignment
+medium,Promoters began to see you as inconsistent and unpredictable performer,You decided to cancel or reschedule shows frequently
+medium,Your social media engagement dropped due to irregular posting patterns,You decided to post inconsistently without clear content strategy
+medium,You gained credibility by delivering consistent high-quality performances repeatedly,You decided to prioritise quality over number of shows
+medium,You built stronger relationships with promoters through reliable communication habits,You decided to maintain clear and timely communication always
+medium,Your brand became more defined after committing to a clear identity,You decided to focus on one consistent artistic direction
+medium,You lost opportunities due to unclear positioning in competitive market,You decided not to define your unique value clearly
+medium,Your performance improved but audience size remained relatively unchanged,You decided to focus only on craft without promotion
+medium,You gained industry attention after a well-executed showcase performance,You decided to invest time preparing one important show
+medium,You struggled financially due to underpricing your performance value consistently,You decided to accept lower fees to secure bookings
+medium,You built a loyal audience through consistent interaction and engagement,You decided to respond and interact with your audience regularly
+medium,Your growth slowed as you avoided taking calculated professional risks,You decided to stay within comfort zone for all decisions
+medium,You expanded reach by performing in different cities and markets,You decided to accept opportunities outside your local area
+medium,You became overexposed locally and audience interest started declining,You decided to perform too frequently in the same market
+medium,Your production quality improved but costs reduced your profitability significantly,You decided to invest heavily without tracking financial returns
+medium,You maintained independence but lacked resources for scaling your career,You decided to avoid partnerships and external support completely
+medium,You gained momentum after aligning your visuals and sound consistently,You decided to standardise your branding across all platforms
+medium,Your set became more engaging with intentional audience interaction moments,You decided to include interaction points within your performance
+medium,You lost momentum due to inconsistent long-term planning and direction,You decided not to plan beyond immediate opportunities
+medium,You gained short-term success but struggled to sustain it consistently,You decided to chase trends without long-term thinking
+medium,Your audience trusted you more due to authentic and honest communication,You decided to share genuine thoughts and experiences publicly
+medium,You faced burnout due to overcommitting across multiple simultaneous projects,You decided to accept too many opportunities at once
+medium,You improved your live show by studying other successful performers closely,You decided to analyse and learn from established artists
+medium,You built moderate income streams but lacked long-term financial stability,You decided not to diversify your revenue sources
+medium,You gained creative control but limited your exposure to larger audiences,You decided to avoid mainstream platforms and opportunities
+medium,You increased bookings after building a strong professional reputation locally,You decided to maintain high reliability across all engagements
+medium,Your growth accelerated after investing in targeted promotional strategies,You decided to run focused campaigns for specific audiences
+medium,You maintained balance by carefully selecting opportunities aligned with goals,You decided to filter opportunities based on long-term fit
+hard,Your rapid growth created pressure that impacted performance consistency significantly,You decided to scale quickly without building stable systems
+hard,You secured a major deal but lost creative control over your work,You decided to sign a contract without negotiating key terms
+hard,Your brand expanded globally but your core audience felt disconnected,You decided to shift focus away from your original audience
+hard,You maintained integrity but missed large-scale commercial opportunities repeatedly,You decided to reject deals that conflicted with your values
+hard,Your revenue increased but your workload became unsustainable over time,You decided to take every opportunity without limits
+hard,You built a strong team but struggled with managing internal conflicts,You decided to avoid addressing issues within your team
+hard,Your career stabilised but growth slowed due to conservative decision making,You decided to minimise risks across all major decisions
+hard,You achieved breakthrough success but failed to sustain long-term momentum,You decided to rely on one major success without follow-up
+hard,You expanded your reach but compromised quality across multiple performances,You decided to prioritise quantity over consistent quality delivery
+hard,You built strong systems but lost spontaneity and creative flexibility,You decided to over-structure every aspect of your performance
+hard,You retained full ownership but faced financial constraints limiting expansion,You decided to avoid external investment or partnerships completely
+hard,You scaled efficiently by building systems supporting long-term sustainable growth,You decided to create systems before expanding your operations
+hard,You built strong brand equity by maintaining consistency across all touchpoints,You decided to align all outputs with a clear identity
+hard,You faced public criticism after a poorly handled professional decision,You decided to respond impulsively without assessing the situation
+hard,You gained trust after handling a crisis with transparency and control,You decided to communicate clearly during a difficult situation
+hard,You diversified income but diluted focus across too many revenue streams,You decided to pursue multiple income streams simultaneously
+hard,You strengthened your position by forming strategic long-term partnerships,You decided to collaborate with aligned partners strategically
+hard,You lost leverage after becoming dependent on one major stakeholder,You decided to rely heavily on a single partner or promoter
+hard,You created a unique experience that differentiated you in the market,You decided to design a distinctive live performance format
+hard,You struggled to adapt when industry dynamics shifted rapidly around you,You decided to ignore emerging trends and external changes
+hard,You maintained relevance by adapting your strategy to changing conditions,You decided to continuously evaluate and adjust your approach
+hard,You built a strong following but failed to monetise effectively,You decided not to convert audience attention into revenue
+hard,You increased revenue but damaged long-term brand perception significantly,You decided to accept misaligned commercial opportunities
+hard,You improved decision-making by analysing outcomes of past choices consistently,You decided to review and learn from previous decisions
+hard,You faced stagnation due to lack of external feedback and perspective,You decided to operate in isolation without outside input
+hard,You gained clarity after reassessing your long-term goals and direction,You decided to pause and rethink your overall strategy
+hard,You lost audience trust after inconsistent messaging and positioning shifts,You decided to change direction frequently without explanation
+hard,You built authority by consistently delivering value over extended period,You decided to focus on long-term value creation
+hard,You expanded influence by leveraging multiple platforms strategically and effectively,You decided to build presence across multiple channels
+hard,You maintained control but limited scale due to resource constraints,You decided to prioritise control over rapid expansion
