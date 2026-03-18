@@ -17,7 +17,9 @@
       --blue: #2563eb;
       --border: #334155;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -26,14 +28,17 @@
       min-height: 100vh;
       -webkit-tap-highlight-color: transparent;
     }
+
     .app {
       max-width: 720px;
       margin: 0 auto;
       min-height: 100vh;
       padding: 16px;
     }
+
     .screen { display: none; }
     .screen.active { display: block; }
+
     .card {
       background: rgba(17, 24, 39, 0.95);
       border: 1px solid var(--border);
@@ -41,15 +46,18 @@
       padding: 18px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
+
     h1, h2, h3, p { margin-top: 0; }
     h1 { font-size: 30px; }
     h2 { font-size: 24px; }
     h3 { font-size: 18px; }
     p, label, select, input, button, li, div { font-size: 18px; line-height: 1.4; }
+
     .muted { color: var(--muted); }
     .row { display: flex; gap: 12px; }
     .row > * { flex: 1; }
     .stack { display: grid; gap: 12px; }
+
     input, select {
       width: 100%;
       padding: 14px;
@@ -58,6 +66,7 @@
       background: #0b1220;
       color: var(--text);
     }
+
     button {
       width: 100%;
       padding: 16px;
@@ -68,16 +77,20 @@
       font-weight: 700;
       cursor: pointer;
     }
+
     button.secondary { background: var(--panel-2); }
     button.success { background: var(--green); }
     button.danger { background: var(--red); }
     button.amber { background: var(--amber); }
     button:disabled { opacity: 0.55; cursor: not-allowed; }
+
     .hero {
       text-align: center;
       padding: 32px 16px;
     }
+
     .hero h1 { margin-bottom: 8px; }
+
     .large-center {
       font-size: clamp(28px, 7vw, 42px);
       line-height: 1.2;
@@ -85,6 +98,14 @@
       font-weight: 700;
       padding: 18px 6px;
     }
+
+    .outcome-panel {
+      background: #0b1220;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 10px;
+    }
+
     .timer {
       text-align: center;
       font-size: clamp(42px, 12vw, 72px);
@@ -92,9 +113,11 @@
       letter-spacing: 1px;
       margin: 8px 0 10px;
     }
+
     .timer.green { color: #4ade80; }
     .timer.amber { color: #f59e0b; }
     .timer.red { color: #f87171; }
+
     .pill {
       display: inline-block;
       padding: 6px 10px;
@@ -105,6 +128,7 @@
       font-size: 14px;
       margin-right: 8px;
     }
+
     .list {
       display: grid;
       gap: 10px;
@@ -112,18 +136,21 @@
       padding: 0;
       list-style: none;
     }
+
     .list li {
       background: #0b1220;
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 12px 14px;
     }
+
     .score-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
     }
+
     .topbar {
       display: flex;
       justify-content: space-between;
@@ -131,10 +158,16 @@
       gap: 12px;
       margin-bottom: 12px;
     }
+
     .small { font-size: 14px; }
     .center { text-align: center; }
-    .spacer { height: 12px; }
     .hidden { display: none !important; }
+
+    @media (max-width: 520px) {
+      .row {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -170,6 +203,7 @@
             </select>
           </div>
         </div>
+
         <div class="row">
           <div>
             <label for="timerSelect">Round timer</label>
@@ -185,10 +219,12 @@
             <input id="sessionName" placeholder="Class A" />
           </div>
         </div>
+
         <div>
           <label>Student names</label>
           <div id="studentInputs" class="stack"></div>
         </div>
+
         <button id="btnCreateSession">Start Round</button>
         <button id="btnBackToSplash" class="secondary">Back</button>
       </div>
@@ -212,7 +248,9 @@
         <span class="pill" id="pillDifficulty"></span>
         <h2>Group Only</h2>
         <p class="muted">Do not show this to the guesser.</p>
-        <div id="outcomeText" class="large-center"></div>
+        <div class="outcome-panel">
+          <div id="outcomeText" class="large-center"></div>
+        </div>
         <button id="btnStartTimer">Start Timer</button>
         <button id="btnBackTurn" class="secondary">Back</button>
       </div>
@@ -224,12 +262,20 @@
           <span class="pill" id="playGuesser"></span>
           <span class="pill" id="playDifficulty"></span>
         </div>
+
+        <div class="outcome-panel">
+          <div id="playOutcomeText" class="large-center"></div>
+        </div>
+
         <div id="timerDisplay" class="timer green">03:00</div>
+
         <p class="muted">Give clues beginning with: “You decided to...”</p>
+
         <div class="row">
           <button id="btnPause" class="secondary">Pause</button>
           <button id="btnCorrect" class="success">Correct</button>
         </div>
+
         <div class="row">
           <button id="btnRevealAnswer" class="amber">Reveal Answer</button>
           <button id="btnEndTurn" class="danger">End Turn</button>
@@ -430,19 +476,22 @@
       document.getElementById('playGuesser').textContent = `Guesser: ${guesser}`;
       document.getElementById('pillDifficulty').textContent = `Difficulty: ${state.difficulty}`;
       document.getElementById('playDifficulty').textContent = `Difficulty: ${state.difficulty}`;
+
       if (!state.currentCard) state.currentCard = getRandomCard();
+
       document.getElementById('outcomeText').textContent = state.currentCard.outcome;
+      document.getElementById('playOutcomeText').textContent = state.currentCard.outcome;
     }
 
     function startSession() {
       state.sessionName = sessionName.value.trim() || 'Untitled Session';
       state.students = Array.from(studentInputs.querySelectorAll('input')).map((i, idx) => i.value.trim() || `Student ${idx + 1}`);
       state.difficulty = difficulty.value;
-      state.timerDuration = Number(timerSelect.value);
+      state.timerDuration = parseInt(timerSelect.value, 10);
       state.roundNumber = 1;
       state.currentTurnIndex = 0;
       state.scores = {};
-      state.students.forEach(name => state.scores[name] = 0);
+      state.students.forEach(s => state.scores[s] = 0);
       state.usedCardIds = [];
       state.currentCard = getRandomCard();
       state.lastResultCorrect = false;
@@ -455,23 +504,45 @@
     function startTimer() {
       clearInterval(state.timerInterval);
       state.timerInterval = setInterval(() => {
-        state.timerRemaining -= 1;
+        state.timerRemaining--;
         renderTimer();
+        saveState();
+
         if (state.timerRemaining <= 0) {
           clearInterval(state.timerInterval);
           state.timerInterval = null;
-          showResult(false);
+          state.lastResultCorrect = false;
+          goToResult();
         }
       }, 1000);
     }
 
-    function showResult(correct) {
+    function pauseTimer() {
+      if (state.timerInterval) {
+        clearInterval(state.timerInterval);
+        state.timerInterval = null;
+        document.getElementById('btnPause').textContent = 'Resume';
+      } else {
+        startTimer();
+        document.getElementById('btnPause').textContent = 'Pause';
+      }
+      saveState();
+    }
+
+    function markCorrect() {
+      state.lastResultCorrect = true;
       clearInterval(state.timerInterval);
       state.timerInterval = null;
-      state.lastResultCorrect = correct;
       const guesser = state.students[state.currentTurnIndex];
-      if (correct) state.scores[guesser] += 1;
-      document.getElementById('resultTitle').textContent = correct ? 'Correct' : 'Time Up / Incorrect';
+      state.scores[guesser] += 1;
+      goToResult();
+    }
+
+    function goToResult() {
+      clearInterval(state.timerInterval);
+      state.timerInterval = null;
+      document.getElementById('btnPause').textContent = 'Pause';
+      document.getElementById('resultTitle').textContent = state.lastResultCorrect ? 'Correct' : 'Time Up / Revealed';
       document.getElementById('resultOutcome').textContent = state.currentCard.outcome;
       document.getElementById('resultDecision').textContent = state.currentCard.decision;
       saveState();
@@ -479,31 +550,38 @@
     }
 
     function nextTurn() {
-      state.currentTurnIndex += 1;
-      resetTimer();
-      state.currentCard = null;
+      state.currentTurnIndex++;
+
       if (state.currentTurnIndex >= state.students.length) {
-        renderSummary();
-        saveState();
-        showScreen('summary');
+        showSummary();
         return;
       }
+
+      state.currentCard = getRandomCard();
+      resetTimer();
       updateTurnScreen();
       saveState();
       showScreen('turn');
     }
 
-    function renderSummary() {
-      document.getElementById('summaryText').textContent = `${state.sessionName} — Round ${state.roundNumber} complete.`;
-      const scoreList = document.getElementById('scoreList');
-      scoreList.innerHTML = '';
+    function showSummary() {
+      const list = document.getElementById('scoreList');
+      list.innerHTML = '';
+
       const ranked = Object.entries(state.scores).sort((a, b) => b[1] - a[1]);
+
       ranked.forEach(([name, score]) => {
         const li = document.createElement('li');
         li.className = 'score-item';
         li.innerHTML = `<span>${name}</span><strong>${score}</strong>`;
-        scoreList.appendChild(li);
+        list.appendChild(li);
       });
+
+      document.getElementById('summaryText').textContent =
+        `${state.sessionName} • Round ${state.roundNumber} complete`;
+
+      saveState();
+      showScreen('summary');
     }
 
     function nextRound() {
@@ -516,62 +594,96 @@
       showScreen('turn');
     }
 
-    document.getElementById('btnStartNew').addEventListener('click', () => showScreen('setup'));
-    document.getElementById('btnResume').addEventListener('click', () => {
-      if (loadState()) {
-        updateTurnScreen();
-        showScreen('turn');
-      } else {
-        alert('No saved session found.');
-      }
+    document.getElementById('btnStartNew').addEventListener('click', () => {
+      buildStudentInputs(parseInt(studentCount.value, 10));
+      showScreen('setup');
     });
+
+    document.getElementById('btnResume').addEventListener('click', () => {
+      if (!loadState()) {
+        alert('No saved session found.');
+        return;
+      }
+      buildStudentInputs(state.students.length);
+      Array.from(studentInputs.querySelectorAll('input')).forEach((input, idx) => {
+        input.value = state.students[idx] || `Student ${idx + 1}`;
+      });
+      studentCount.value = String(state.students.length);
+      difficulty.value = state.difficulty;
+      timerSelect.value = String(state.timerDuration);
+      sessionName.value = state.sessionName;
+      updateTurnScreen();
+      renderTimer();
+      showScreen('turn');
+    });
+
     document.getElementById('btnBackToSplash').addEventListener('click', () => showScreen('splash'));
-    studentCount.addEventListener('change', e => buildStudentInputs(Number(e.target.value)));
+
+    studentCount.addEventListener('change', () => {
+      buildStudentInputs(parseInt(studentCount.value, 10));
+    });
+
     document.getElementById('btnCreateSession').addEventListener('click', startSession);
+
     document.getElementById('btnRevealOutcome').addEventListener('click', () => {
       updateTurnScreen();
       showScreen('outcome');
     });
-    document.getElementById('btnBackTurn').addEventListener('click', () => showScreen('turn'));
+
+    document.getElementById('btnBackTurn').addEventListener('click', () => {
+      showScreen('turn');
+    });
+
     document.getElementById('btnStartTimer').addEventListener('click', () => {
+      resetTimer();
+      updateTurnScreen();
       renderTimer();
       showScreen('play');
       startTimer();
+      saveState();
     });
-    document.getElementById('btnPause').addEventListener('click', () => {
-      if (state.timerInterval) {
-        clearInterval(state.timerInterval);
-        state.timerInterval = null;
-        document.getElementById('btnPause').textContent = 'Resume';
-      } else {
-        startTimer();
-        document.getElementById('btnPause').textContent = 'Pause';
-      }
+
+    document.getElementById('btnPause').addEventListener('click', pauseTimer);
+    document.getElementById('btnCorrect').addEventListener('click', markCorrect);
+    document.getElementById('btnRevealAnswer').addEventListener('click', () => {
+      state.lastResultCorrect = false;
+      goToResult();
     });
-    document.getElementById('btnCorrect').addEventListener('click', () => showResult(true));
-    document.getElementById('btnRevealAnswer').addEventListener('click', () => showResult(false));
-    document.getElementById('btnEndTurn').addEventListener('click', () => showResult(false));
+    document.getElementById('btnEndTurn').addEventListener('click', () => {
+      state.lastResultCorrect = false;
+      goToResult();
+    });
+
     document.getElementById('btnNextTurn').addEventListener('click', nextTurn);
     document.getElementById('btnNextRound').addEventListener('click', nextRound);
     document.getElementById('btnNewSession').addEventListener('click', () => {
+      clearInterval(state.timerInterval);
       localStorage.removeItem('decisionLabState');
-      location.reload();
-    });
-    document.getElementById('btnTeacherPanel').addEventListener('click', () => showScreen('teacher'));
-    document.getElementById('btnCloseTeacher').addEventListener('click', () => showScreen('turn'));
-    document.getElementById('btnSkipStudent').addEventListener('click', nextTurn);
-    document.getElementById('btnAdjustTimer').addEventListener('click', () => {
-      resetTimer();
-      alert('Current timer reset.');
-    });
-    document.getElementById('btnGoSummary').addEventListener('click', () => {
-      renderSummary();
-      showScreen('summary');
+      showScreen('splash');
     });
 
-    buildStudentInputs(Number(studentCount.value));
+    document.getElementById('btnTeacherPanel').addEventListener('click', () => showScreen('teacher'));
+    document.getElementById('btnCloseTeacher').addEventListener('click', () => showScreen('turn'));
+
+    document.getElementById('btnSkipStudent').addEventListener('click', () => {
+      clearInterval(state.timerInterval);
+      nextTurn();
+    });
+
+    document.getElementById('btnAdjustTimer').addEventListener('click', () => {
+      resetTimer();
+      renderTimer();
+      saveState();
+      alert('Timer reset.');
+    });
+
+    document.getElementById('btnGoSummary').addEventListener('click', () => {
+      clearInterval(state.timerInterval);
+      showSummary();
+    });
+
+    buildStudentInputs(parseInt(studentCount.value, 10));
     renderTimer();
-    document.getElementById('btnResume').disabled = !localStorage.getItem('decisionLabState');
   </script>
 </body>
 </html>
